@@ -34,7 +34,10 @@ stock_calcs: Tracks historical changes in stock calculations.
 ## Technologies Used
 
 DBT: For managing and deploying SQL-based transformations.
+
 Apache Airflow: For orchestrating the pipeline.
+
 Snowflake: As the cloud data warehouse.
+
 Docker: For containerized setup of Airflow.
 
