@@ -13,3 +13,28 @@ Transformations: Calculations for moving averages (7-day) and Relative Strength 
 Snapshots: Historical data snapshots managed by DBT.
 
 Orchestration: Airflow DAGs to execute DBT commands (run, test, snapshot).
+
+
+## DBT Models
+
+### Transformations
+The following transformations are implemented in the DBT project:
+
+Moving Averages:
+Calculates the 7-day moving average for stock prices.
+
+RSI Calculation:
+Computes the 14-day Relative Strength Index (RSI) for stock performance.
+
+### Snapshots
+Snapshots are configured for the following tables:
+
+stock_calcs: Tracks historical changes in stock calculations.
+
+## Technologies Used
+
+DBT: For managing and deploying SQL-based transformations.
+Apache Airflow: For orchestrating the pipeline.
+Snowflake: As the cloud data warehouse.
+Docker: For containerized setup of Airflow.
+
