@@ -50,7 +50,7 @@ with DAG(
 
     dbt_test = BashOperator(
         task_id="dbt_test",
-        bash_command=f"/opt/airflow/build_ELT test --profiles-dir {DBT_PROJECT_DIR} --project-dir {DBT_PROJECT_DIR} --models stock_calcs",
+        bash_command=f"/opt/airflow/build_ELT test --profiles-dir {DBT_PROJECT_DIR} --project-dir {DBT_PROJECT_DIR} --models stock_prices stock_calcs",
     )
 
     dbt_snapshot = BashOperator(
