@@ -19,7 +19,7 @@ from airflow.operators.bash import BashOperator
 from airflow.hooks.base import BaseHook
 
 
-DBT_PROJECT_DIR = "/Users/himajasree/Desktop/dw_lab2/week8/airflow/build_ELT"
+DBT_PROJECT_DIR = "/opt/airflow/build_ELT"
 
 
 conn = BaseHook.get_connection('snowflake_conn')
@@ -44,18 +44,18 @@ with DAG(
 ) as dag:
     dbt_run = BashOperator(
     task_id='dbt_run',
-    bash_command='cd /Users/himajasree/Desktop/dw_lab2/week8/airflow/build_ELT && dbt run --select stock_prices stock_calcs',
+    bash_command=f"/opt/airflow/build_ELT && dbt run --select stock_prices stock_calcs",
     dag=dag
 )
 
     dbt_test = BashOperator(
         task_id="dbt_test",
-        bash_command=f"/Users/himajasree/Desktop/dw_lab2/week8/airflow/build_ELT test --profiles-dir {DBT_PROJECT_DIR} --project-dir {DBT_PROJECT_DIR} --models stock_calcs",
+        bash_command=f"/opt/airflow/build_ELT test --profiles-dir {DBT_PROJECT_DIR} --project-dir {DBT_PROJECT_DIR} --models stock_calcs",
     )
 
     dbt_snapshot = BashOperator(
         task_id="dbt_snapshot",
-        bash_command=f"/Users/himajasree/Desktop/dw_lab2/week8/airflow/build_ELT snapshot --profiles-dir {DBT_PROJECT_DIR} --project-dir {DBT_PROJECT_DIR} --select snapshot_stock_calcs",
+        bash_command=f"/opt/airflow/build_ELT snapshot --profiles-dir {DBT_PROJECT_DIR} --project-dir {DBT_PROJECT_DIR} --select snapshot_stock_calcs",
     )
 
     # print_env_var = BashOperator(
