@@ -1,0 +1,13 @@
+build_ELT:
+  outputs:
+    dev:
+      account: "RRWXRUI-RNB26847"
+      database: "stock_db" 
+      password: "Himaja@2k"
+      role: "ACCOUNTADMIN" 
+      threads: 1
+      schema: "analytics" 
+      type: "snowflake"
+      user: "himajasree83"
+      warehouse: "compute_wh" 
+  target: dev
